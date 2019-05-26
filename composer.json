@@ -1,0 +1,22 @@
+{
+    "name": "orq/wxpn",
+    "description": "The PHP library to make WeiXin Public Number Development easier",
+    "type": "library",
+    "require-dev": {
+        "phpunit/phpunit": "^8.2@dev"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "rocky",
+            "email": "rockysynergy@qq.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Orq\\Wxpn\\": "src"
+        }
+    }
+}
