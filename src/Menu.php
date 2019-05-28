@@ -13,7 +13,7 @@ class Menu extends WeiXin
      * @param array $matchrule 菜单匹配规则
      * @return array
      */
-    public function createMenu($button, $matchrule = null)
+    public function create($button, $matchrule = null)
     {
         foreach ($button as &$item) {
             foreach ($item as $k => $v) {
