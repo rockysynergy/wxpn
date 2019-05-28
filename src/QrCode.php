@@ -56,12 +56,11 @@ class QrCode extends Weixin
     /**
      * 合成二维码图片海报
      * @param string $qrcodeFullPath 二维码图片的文件地址
-     * @param string $scene_id 渠道值
      * @param string $bgPath 海报背景图片地址
      * @param string $targetPath 目标地址
      * @return void
      */
-    public function makePoster($qrcodeFullPath, $scene_id, $bgPath, $targetPath) {
+    public function makePoster($qrcodeFullPath, $bgPath, $targetPath) {
         $config = array(
             'image'=>array(
                 array(
