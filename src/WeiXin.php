@@ -16,13 +16,16 @@ class Weixin
             $this->appsecret = $appsecret;
         }
 
-        $file = __DIR__ . '/access_token.json';
-        $res = file_get_contents($file);
-        $result = json_decode($res, true);
-        $this->expires_time = $result["expires_time"];
-        $this->access_token = $result["access_token"];
+       $file = __DIR__ . '/access_token.json';
+        $hasFile = file_exists($file);
+        if ($hasFile) {
+            $res = file_get_contents($file);
+            $result = json_decode($res, true);
+            $this->expires_time = $result["expires_time"];
+            $this->access_token = $result["access_token"];
+        }
       
-        if (time() > ($this->expires_time + 3600)){
+        if (time() > ($this->expires_time + 3600) || !$hasFile){
             $url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=".$this->appid."&secret=".$this->appsecret;
             $res = $this->request($url);
             $result = json_decode($res, true);
