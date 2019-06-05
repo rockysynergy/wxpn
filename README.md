@@ -5,6 +5,13 @@
 微信公众号开发PHP库
 
 # 安装
+1. `composer require orq/wxpn`
+2. 下载本仓库的代码，使用示例如下：
+
+```PHP
+    include_once ROOT.'/wxpn/wxpn_autoloader.php';
+    $wQrCode = new Orq\Wxpn\QrCode(WX_APPID, WX_APPSECRET);
+```
 
 # 手册
 
