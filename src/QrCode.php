@@ -58,23 +58,24 @@ class QrCode extends Weixin
      * @param string $qrcodeFullPath 二维码图片的文件地址
      * @param string $bgPath 海报背景图片地址
      * @param string $targetPath 目标地址
+     * @param array $config 二维码图片位置
      * @return void
      */
-    public function makePoster($qrcodeFullPath, $bgPath, $targetPath) {
+    public function makePoster($qrcodeFullPath, $bgPath, $targetPath, $qrConfig=[]) {
+        $dConfig = array(
+            'stream'=>0,
+            'left'=>440,
+            'top'=>935,
+            'right'=>0,
+            'bottom'=>0,
+            'width'=>250,
+            'height'=>250,
+            'opacity'=>100
+        );
+        $qrConfig = array_merge($dConfig, $qrConfig);
+        $qrConfig['url'] = $qrcodeFullPath; //二维码资源
         $config = array(
-            'image'=>array(
-                array(
-                    'url'=>$qrcodeFullPath,     //二维码资源
-                    'stream'=>0,
-                    'left'=>440,
-                    'top'=>935,
-                    'right'=>0,
-                    'bottom'=>0,
-                    'width'=>250,
-                    'height'=>250,
-                    'opacity'=>100
-                )
-            ),
+            'image'=>array($qrConfig),
             'background'=>$bgPath //背景图
         );
         //echo createPoster($config,$targetPath);
